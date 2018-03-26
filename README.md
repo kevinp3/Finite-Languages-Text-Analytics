@@ -37,7 +37,7 @@ Lexical Diversity:  Lexical diversity is essentially the ration of unique words 
     3.    Expanding all contractions (expanding all contractions in each language so each word is counted accurately)
     4.    Randomizing words (the way lexical diversity is calculated, word order matters.  The way to get the most accurate results is to have the words randomized.
     5.    Solve for lexical diversity.
-    6.    Perform steps (4) and (5) multiple times (more times for shorter texts) and take an average of the results to get the Lexical Diversity score.  It is necessary to do this multiple times because you will get a slightly different lexical diversity score on each pass, depending on the order of randomized words.
+    6.    Perform steps (4) and (5) multiple times (more times for shorter texts since shorter texts will have the greatest variance between trials) and take an average of the results to get the Lexical Diversity score.  It is necessary to do this multiple times because you will get a slightly different lexical diversity score on each pass, depending on the order of randomized words.
     
 Average Word Length:  This is the average word length of the non-native's text.  As with the lexical diversity score, the author's average word length should not be above OR below the result of the average word length for a native speaker (100% is perfect, < or > results in a lower grade).  Use only (1) from Correction Differences (text string of all text that was not corrected).  Authors should not get credit for words written incorrectly to their average word length.
 
