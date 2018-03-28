@@ -1,5 +1,17 @@
 #Lexical diversity functions
 
+import string
+
+# Global trandform for removing punctuation from words
+remove_punctuation = str.maketrans('', '', string.punctuation)
+
+#Normal TTR method of lexical diversity
+def lexical_diversity(text):
+	word_count = len(text)
+	vocab_size = len(set(text))
+	diversity_score = vocab_size / word_count
+	return diversity_score
+    
 # MTLD internal implementation to be used in MTLD final function.
 def mtld_calc(word_array, ttr_threshold):
     current_ttr = 1.0

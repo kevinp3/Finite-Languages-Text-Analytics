@@ -1,7 +1,7 @@
 #List of contractions and corresponding expansions
 
-contractions = {
-"l'": "il"
+italian_contractions = {
+"l'": "il",
 "del": "di il",
 "dello": "di lo",
 "dell'": "di il",

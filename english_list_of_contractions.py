@@ -1,6 +1,6 @@
 #List of contractions and corresponding expansions
 
-contractions = {
+english_contractions = {
 "ain’t": "am not / are not",
 "aren’t": "are not / am not",
 "can’t": "cannot",

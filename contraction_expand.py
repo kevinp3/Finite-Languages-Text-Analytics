@@ -1,7 +1,7 @@
 #Contraction expanding function
 
 #Takes a list of contractions and their corresponding expansions and a list of strings
-def contraction_expand(contraction_list, list_strings)
+def contraction_expand(contraction_list, list_strings):
     i = 0
     j = 0
     count = 0
