@@ -154,33 +154,6 @@ from nltk.corpus import PlaintextCorpusReader
 
 """Defining Functions to be Used"""
 
-#Lex D function that is an alternative to MTLD and HDD and may not be used if
-#  MTLD and/ or HDD are found to be accurate.
-error_codes = ["'", 'E', 'T', 'D', 'Z']
-http = Http()
-
-def find_lex_d(text):
-    data = {'input': text}
-    response, content = http.request("http://lex-d.herokuapp.com", "POST", urlencode(data))
-    if response['status'] != 200:
-        if str(content)[2] in error_codes:
-            print(content)                    # print error message if error
-        else:
-            print(float(str(content).split("'")[1]))  # print Lexical diversity score
-    else:
-        print('Error 200 thrown from server')
-
-# Global trandform for removing punctuation from words
-remove_punctuation = str.maketrans('', '', string.punctuation)
-
-#Normal TTR method of lexical diversity.  This will only be used as a checker
-#  check the accuracy of MTLD and HDD lexical diversity calculations.
-def lexical_diversity(text):
-	word_count = len(text)
-	vocab_size = len(set(text))
-	diversity_score = vocab_size / word_count
-	return diversity_score
-
 # MTLD internal implementation to be used in MTLD final function.
 def mtld_calc(word_array, ttr_threshold):
     current_ttr = 1.0
@@ -291,8 +264,7 @@ def plot_freqdist_freq(fd, max_num=None, cumulative=False, title='Frequency plot
 """Defining Working Directory"""
 
 #corpus_root will be the file directory where the .txt files for analysis are stored.
-corpus_root = '/Users/Bryce/Desktop/Corpora/Texts'
-# temporary user input bypass above^^^ input('Input file location of text files for analysis: ')
+corpus_root = input('Input file location of text files for analysis: ')
 wordlists = PlaintextCorpusReader(corpus_root, '.*')
 
 """Combing .txt Files and Loading to List"""
