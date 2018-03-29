@@ -16,11 +16,6 @@ import os
 import re
 import sys
 
-#Imports necessary for lex D function
-from httplib2 import Http
-from urllib.parse import urlencode
-from xml.etree.ElementTree import fromstring
-
 #FreqDist will allow us to count the useage of each word in a text.
 from nltk import FreqDist
 
