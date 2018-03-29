@@ -2,19 +2,7 @@
 
 The basic setup:
 
-Non-native authors write texts in their non-native language.  A native speaker then corrects this text and several metrics are analyzed (explained below).  A .txt file is generated upon each submission and correction that appears as such:
-
-    NON-CORRECTED TEXT
-    
-    Here is where we see the non-corrected text.
-    
-    NATIVE TRANSLATION
-    
-    Here we see the user-written translation of the same text into their native language (not necessary for metrics).
-    
-    CORRECTED TEXT
-    
-    Here we see the text complete with corrections from a native speaker.
+Non-native authors write texts in their non-native language.  A native speaker then corrects this text and several metrics are analyzed (explained below).  All data is saved in a MySQL database with columns as follows: Name, Target Language, Target Text Uncorrected, Target Text Corrected, Native French Text, Native English Text, Native German Text, Native Italian Text.  The code will have to pull all necessary information from these columns if triggered by a row being updated in the 'Target Text Corrected' column.  This will always be the last information added to the database.
     
 Several example files are included in the repository for testing (at this time they do not follow this format above, will fix)
 
