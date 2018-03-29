@@ -28,27 +28,27 @@ from nltk import FreqDist
 from nltk.corpus import PlaintextCorpusReader
 
 """SET THE DIRECTORY LOCATION WHERE THE FUNCTION MODULES ARE KEPT"""
-module_root = input('Input directory location of modules where functions are kept: ')
-sys.path.insert(0, module_root)
+#module_root = input('Input directory location of modules where functions are kept: ')
+#sys.path.insert(0, module_root)
 
 """IMPORTING USER DEFINED FUNCTIONS FROM FILES"""
 
 #Lists of contractions that are referenced for contraction expansion with the contraction_expand function
-import italian_list_of_contractions
-import english_list_of_contractions
+from italian_list_of_contractions import *
+from english_list_of_contractions import *
 
 #Expands the contractions into their full form
 #contraction_expand(contraction_list, list_strings)
-import contraction_expand
+from contraction_expand import *
 
 #Plots the frequency distribution of words
 #plot_freqdist_freq(fd, max_num=None, cumulative=False, title='Frequency plot', linewidth=2)
-import FreqDist_plot
+from FreqDist_plot import *
 
 #This file holds both MTLD and HDD functions
 #hdd(word_array, sample_size=42.0)
 #mtld(word_array, ttr_threshold=0.72)
-import all_lexical_diversity_functions
+from all_lexical_diversity_functions import *
 
 """Defining Directory Location of Texts"""
 
