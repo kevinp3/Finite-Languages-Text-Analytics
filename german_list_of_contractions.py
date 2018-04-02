@@ -58,6 +58,8 @@ german_contractions = {
 "war's": "war es",
 "wär's": "wär es",
 "weißtu": "weißt du",
-"zun": "zu den"
+"zun": "zu den",
+"hab": "habe",
+"hab'": "habe"
 }
 
