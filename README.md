@@ -1,6 +1,6 @@
 # Finite-Languages-Text-Analytics
 
-## The basic setup:
+## Basic Setup:
 
 Non-native authors write texts in their non-native language.  A native speaker then corrects this text and several metrics are analyzed (explained below).  All data is saved in a MySQL database.  The code will have to pull all necessary information from these columns if triggered by a row being updated in the column where corrected text is stored.  This will always be the last information added to the database and is needed for all of the following calculations.
     
@@ -76,7 +76,7 @@ Weighted score (described above)
 Plot of native speaker's top used words vs. user's use of those same words (displayed as percent of text)
 ```
 
-## Final Student Score
+## Final Score
 
 Along with the results and charts from the above metrics, students will get a singular score.  This will be weighted as such:
     
