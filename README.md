@@ -4,7 +4,7 @@
 
 Non-native authors write texts in their non-native language.  A native speaker then corrects this text and several metrics are analyzed (explained below).  All data is saved in a MySQL database.  The code will have to pull all necessary information from these columns if triggered by a row being updated in the column where corrected text is stored.  This will always be the last information added to the database and is needed for all of the following calculations.
     
-*Several example files are included in the repository for testing (at this time they do not follow this format above, will fix)
+*Several example files are included in the repository for testing (at this time they do not follow this format above, will fix)*
 
 The Finite Languages code is used to compare native author writing style to that of non-natives on five key metrics:
 
@@ -21,14 +21,21 @@ Each submission is corrected by a native speaker.  The corrected and uncorrected
 2. Text string of all sentences that were not corrected (sentences where no corrections were present)
 3. Percentage changed (percentage of words that were corrected)
 
-*NOTE: (1) and (2) will be used to determine other metrics later on but (3) will be one of the five metrics used in the final grade.
+OUTPUTS
+```
+Percentage correct = 100% - 'percentage changed'
+Formatted list of changes for the user to view
+```
+
+*NOTE: (1) and (2) will be used to determine other metrics later on but (3) will be one of the five metrics used in the final grade.*
 
 ##### Lexical Diversity
 Lexical diversity is essentially the ratio of unique words to the total amount of words.  However, Finite Languages uses MTLD to determine the Lexical Diversity score.  This score is usually above 100 and is meaningless without comparing it to the native text.  Therefore, the output is always the percentage of the non-native lexical diversity divided by the average native text lexical diversity (pull and perform lexical diversity test on native text from database for compare).  A perfect score is 100% with anything above or below being 'less native sounding' (ex.  105% lexical diversity compared to native speakers is actually a bad thing)
 
 OUTPUTS
-> 100% - 'percent difference' = lexical diversity percentage
-
+```
+100% - 'percent difference' = lexical diversity percentage
+```
 *Lexical diversity is found in the following steps:
 
 1. Use only (1) from Correction Differences (text string of all text that was not corrected).  Authors should not get credit for words written incorrectly to their lexical diversity score.
@@ -42,22 +49,32 @@ OUTPUTS
 This is the average word length of the non-native's text.  As with the lexical diversity score, the author's average word length should not be above OR below the result of the average word length for a native speaker.  Use only (1) from Correction Differences (text string of all text that was not corrected).  Authors should not get credit for words written incorrectly to their average word length.
 
 OUTPUTS
-> Average Word Length Score = 100% - %-Difference
-> User Average Word Length
-> Native Average Word Length
+```
+Average Word Length Score = 100% - %-Difference
+User Average Word Length
+Native Average Word Length
+```
 
 ##### Average Sentence Length
 This is the average sentence of the non-native's text.  As with the lexical diversity score, the author's average sentence length should not be above OR below the result of the average sentence length for a native speaker.  Use only (2) from Correction Differences (text string of all sentences that were not corrected).  Authors should not get credit for sentences written incorrectly to their average word length.
 
 OUTPUTS
-> Average Sentence Length Score = 100% - %-Difference
-> User Average Sentence Length
-> Native Average Sentence Length
+```
+Average Sentence Length Score = 100% - %-Difference
+User Average Sentence Length
+Native Average Sentence Length
+```
 
 ##### Word Frequency Distribution Comparison
 A frequency distribution of the top 20 words used by native speakers will be compared to the top 30 words used by the user.  This frequency distribution will be compared to the total number of words in the text so each word is evaluated as a percent-of-total value.  For example:  A native English writer may see the following frequency distribution {the: 0.08, a: 0.06, an: 0.05...} while a non-native English writer may see the following {the: 0.10, a: 0.04, an: 0.05...}.  The percent difference for each word is calculated.  In the example the corresponding percent differences between the user and the native are {the: 22.22%, a: 40.00%, an: 0.00%}.  Therefore, the final, unweighted score is (average of top 20 words used by the native speaker) 100% - 20.74% = 79.26%.  However, words at the top of the list (most common words) should be weighted higher than words at the bottom of the list that may change more depending on topic.  Therefore, the top 20 %-difference scores will be weighted as follows:
 
-> 1: 14%, 2: 12%, 3: 11%, 4: 10%, 5: 9%, 6: 8%, 7: 7%, 8: 6%, 9: 5%, 10: 5%, 11: 4%, 12: 3%, 13: 3%, 14: 2%, 15: 1%
+*1: 14%, 2: 12%, 3: 11%, 4: 10%, 5: 9%, 6: 8%, 7: 7%, 8: 6%, 9: 5%, 10: 5%, 11: 4%, 12: 3%, 13: 3%, 14: 2%, 15: 1%*
+
+OUTPUTS
+```
+Weighted score (described above)
+Plot of native speaker's top used words vs. user's use of those same words (displayed as percent of text)
+```
 
 ## Final Student Score
 
