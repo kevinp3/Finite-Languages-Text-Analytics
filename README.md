@@ -1,9 +1,8 @@
 # Finite-Languages-Text-Analytics
 
 
-## Necessary Imports:
+## Required external installations:
 
-Required external installations:
 1. NLTK
 2. MySQL/ Connector
 
