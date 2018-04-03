@@ -1,7 +1,7 @@
 # Finite-Languages-Text-Analytics
 
 
-## Basic Setup:
+## Necessary Imports:
 
 Required external installations:
 1. NLTK
