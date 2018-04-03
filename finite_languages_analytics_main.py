@@ -45,6 +45,31 @@ from FreqDist_plot import *
 #mtld(word_array, ttr_threshold=0.72)
 from all_lexical_diversity_functions import *
 
+#Importing so we can access MySQL database of texts
+import mysql.connector
+
+"========================================================="
+"""Setting Up Connection To Database"""
+#Credentials (username, password, database and host are stored in a local configuration file)
+#the skeleton for this file is included as configuration.py
+#fill this file with appropriate credentials before running
+from configuration import *
+
+cnx = mysql.connector.connect(**config)
+
+cursor = cnx.cursor()
+
+query = ("SELECT title, text_uncorrected, text_corrected FROM submission_instances")
+
+cursor.execute(query)
+
+for (title, text_uncorrected, text_corrected) in cursor:
+    print("{} \n \n*|* {}*|* {}". format(title, text_corrected, text_uncorrected))
+    
+cursor.close()
+
+"========================================================="
+
 """Defining Directory Location of Texts"""
 
 #corpus_root will be the file directory where the .txt files for analysis are stored.
