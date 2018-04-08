@@ -13,20 +13,21 @@ Basically no error checking.
 """
 
 
-
 import json
 import os.path
 
-import french_list_of_contractions as fr
-from config import german_list_of_contractions as gr    # probably wrong code, oh-wll
+from config import french_list_of_contractions as fr
+from config import german_list_of_contractions as gr  # probably wrong language code, oh-well
 from config import italian_list_of_contractions as it
+from config import english_list_of_contractions as en
 
 
 frc = fr.french_contractions
 grc = gr.german_contractions
 itc = it.italian_contractions
+enc = en.english_contractions
 
-for contractions, lang in ((frc, 'french'), (grc, 'german'), (itc, 'italian')):
+for contractions, lang in ((frc, 'french'), (grc, 'german'), (itc, 'italian'), (enc, 'english')):
     res = {}
     res['contractions'] = contractions
 
