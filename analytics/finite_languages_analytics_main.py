@@ -38,7 +38,7 @@ from FreqDist_plot import *
 # This file holds both MTLD and HDD functions
 # hdd(word_array, sample_size=42.0)
 # mtld(word_array, ttr_threshold=0.72)
-from all_lexical_diversity_functions import *
+from analytics.all_lexical_diversity_functions import *
 
 # Importing so we can access MySQL database of texts
 import mysql.connector
