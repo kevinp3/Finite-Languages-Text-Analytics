@@ -1,59 +1,54 @@
-###Very important to identify differences between corrected texts and uncorrected texts
-###Some analytics (like lexical diversity) should only be performed on sections of
-####text that were correct initially (writers shouldn't get Lexical Diversity credit for
-####things they didn't write or things they wrote incorrectly)  This isn't yet implemented
-####in the code but should be.  Think about using "import difflib" and "SequenceMatcher".
-####Reference https://docs.python.org/2/library/difflib.html
+"""Calculate MTLD
+
+Very important to identify differences between corrected texts and uncorrected texts
+
+Some analytics (like lexical diversity) should only be performed on sections of
+text that were correct initially (writers shouldn't get Lexical Diversity credit for
+things they didn't write or things they wrote incorrectly)  This isn't yet implemented
+in the code but should be.
+
+Think about using "import difflib" and "SequenceMatcher".
+Reference https://docs.python.org/2/library/difflib.html
+"""
 
 
-"""IMPORTING PACKAGES AND FUNCTIONS"""
-
-#Importing packages to be used for text analysis, calculations, and directories
-import nltk
 import random
-import string
-import os
-import re
-import sys
 
-#FreqDist will allow us to count the useage of each word in a text.
+# FreqDist will allow us to count the useage of each word in a text.
 from nltk import FreqDist
 
-#The PlaintextCorpusReader allows us to work with out own imported .txt files
+# The PlaintextCorpusReader allows us to work with out own imported .txt files
 from nltk.corpus import PlaintextCorpusReader
 
 """SET THE DIRECTORY LOCATION WHERE THE FUNCTION MODULES ARE KEPT"""
-#module_root = input('Input directory location of modules where functions are kept: ')
-#sys.path.insert(0, module_root)
+# module_root = input('Input directory location of modules where functions are kept: ')
+# sys.path.insert(0, module_root)
 
 """IMPORTING USER DEFINED FUNCTIONS FROM FILES"""
 
-#Lists of contractions that are referenced for contraction expansion with the contraction_expand function
-from italian_list_of_contractions import *
-from english_list_of_contractions import *
+# Lists of contractions that are referenced for contraction expansion with the contraction_expand function
 
-#Expands the contractions into their full form
-#contraction_expand(contraction_list, list_strings)
-from contraction_expand import *
+# Expands the contractions into their full form
+# contraction_expand(contraction_list, list_strings)
 
-#Plots the frequency distribution of words
-#plot_freqdist_freq(fd, max_num=None, cumulative=False, title='Frequency plot', linewidth=2)
+# Plots the frequency distribution of words
+# plot_freqdist_freq(fd, max_num=None, cumulative=False, title='Frequency plot', linewidth=2)
 from FreqDist_plot import *
 
-#This file holds both MTLD and HDD functions
-#hdd(word_array, sample_size=42.0)
-#mtld(word_array, ttr_threshold=0.72)
+# This file holds both MTLD and HDD functions
+# hdd(word_array, sample_size=42.0)
+# mtld(word_array, ttr_threshold=0.72)
 from all_lexical_diversity_functions import *
 
-#Importing so we can access MySQL database of texts
+# Importing so we can access MySQL database of texts
 import mysql.connector
 
 "========================================================="
 """Setting Up Connection To Database"""
-#Credentials (username, password, database and host are stored in a local configuration file)
-#the skeleton for this file is included as configuration.py
-#fill this file with appropriate credentials before running
-from configuration import *
+# Credentials (username, password, database and host are stored in a local configuration file)
+# the skeleton for this file is included as configuration.py
+# fill this file with appropriate credentials before running
+from config.configuration import *
 
 cnx = mysql.connector.connect(**config)
 
